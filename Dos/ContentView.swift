@@ -15,7 +15,8 @@ import ProgressHUD
 
 struct ContentView: View {
     @Environment(\.colorScheme) var colorScheme
-    
+    @Environment(\.openURL) var openURL
+
     init() {
         UINavigationBar.appearance().titleTextAttributes = [.font : UIFont(name: "Catamaran-Bold", size: 20)!]
     }
@@ -147,9 +148,21 @@ struct ContentView: View {
                 .actionSheet(isPresented: $showingActionSheet) {
                     ActionSheet(title: Text(titleName), buttons: [
                         .default(Text("View on Product Hunt")) {
-                            
+                            openURL(URL(string: link)!)
+
                         },
-                        .default(Text("Add to Favorites")){
+                        .default(Text("Save to Favorites")){
+                            //Add link and title to favoirtes
+    
+                            //Add to list
+                            //var dict = [titleName: link]
+                            
+                            //Get old dictionary
+                            var savedHunts =                             UserDefaults.standard.dictionary(forKey: "SavedHunts")
+                            
+                            //Update old dictionary
+                            savedHunts![titleName] = link
+                            
                             
                         },
                         .cancel()
@@ -364,6 +377,27 @@ struct SettingsView: View{
                 //Toggle("Dark Mode", isOn: $darkMode)
                 NavigationLink("Favorites", destination: ({
                     List{
+
+                        let savedHunts =                             UserDefaults.standard.dictionary(forKey: "SavedHunts")
+
+                        Button(action: {
+                            for (title, link) in savedHunts! {
+                                    print(title)
+                                    print(link)
+
+                            }
+                        }, label: {
+                            Text("Loop Test")
+                        })
+                        
+                        Button(action: {
+                            print(savedHunts)
+                        }, label: {
+                            Text("Defaults")
+                        })
+                        
+                        
+                        
                         Link(destination: URL(string: "https://www.producthunt.com")!, label: {
                             HStack{
                                 Text("Product Hunt Website")
