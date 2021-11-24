@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		090A7853274E7C5A00572651 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 090A7852274E7C5A00572651 /* SettingsView.swift */; };
+		090A7855274E7C9C00572651 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 090A7854274E7C9C00572651 /* Extensions.swift */; };
 		093A6C1627232719005C1143 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 093A6C1527232719005C1143 /* Reachability.swift */; };
 		09A77CBA27200F1C00A66C85 /* DosApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09A77CB927200F1C00A66C85 /* DosApp.swift */; };
 		09A77CBC27200F1C00A66C85 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09A77CBB27200F1C00A66C85 /* ContentView.swift */; };
@@ -26,6 +28,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		090A7852274E7C5A00572651 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		090A7854274E7C9C00572651 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		093A6C1527232719005C1143 /* Reachability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 		09A77CB627200F1C00A66C85 /* Dos.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Dos.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		09A77CB927200F1C00A66C85 /* DosApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DosApp.swift; sourceTree = "<group>"; };
@@ -96,6 +100,8 @@
 				09A77CD227201AEE00A66C85 /* Catamaran-Thin.ttf */,
 				09A77CBF27200F1E00A66C85 /* Preview Content */,
 				093A6C1527232719005C1143 /* Reachability.swift */,
+				090A7852274E7C5A00572651 /* SettingsView.swift */,
+				090A7854274E7C9C00572651 /* Extensions.swift */,
 			);
 			path = Dos;
 			sourceTree = "<group>";
@@ -250,7 +256,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				090A7855274E7C9C00572651 /* Extensions.swift in Sources */,
 				09A77CBC27200F1C00A66C85 /* ContentView.swift in Sources */,
+				090A7853274E7C5A00572651 /* SettingsView.swift in Sources */,
 				09A77CBA27200F1C00A66C85 /* DosApp.swift in Sources */,
 				093A6C1627232719005C1143 /* Reachability.swift in Sources */,
 			);

@@ -6,12 +6,14 @@
 //
 
 import SwiftUI
-import StoreKit
 import Alamofire
 import SwiftyJSON
 import Kingfisher
 import Foundation
 import ProgressHUD
+
+
+
 
 struct ContentView: View {
     @Environment(\.colorScheme) var colorScheme
@@ -31,6 +33,7 @@ struct ContentView: View {
     @State var votes = "0"
     @State var imageURLS: [String] = []
     @State private var showingActionSheet = false
+    @State var isLoading = Bool()
 
     var body: some View {
         NavigationView{
@@ -49,7 +52,6 @@ struct ContentView: View {
                     
                     HStack{
                         if Connectivity.isConnectedToInternet{
-                            
                             ForEach(imageURLS, id: \.self){ links in
                                 KFImage(URL(string: links)!)
                                     .placeholder{
@@ -59,9 +61,7 @@ struct ContentView: View {
                                     .aspectRatio(contentMode: .fit)
                                     .frame(width: UIScreen.main.bounds.width)
                             }
-                            
                         }
-                        
                     }
                 }
                 
@@ -92,6 +92,12 @@ struct ContentView: View {
                     if Connectivity.isConnectedToInternet{
                         imageURLS.removeAll()
 
+                        
+                        //Show loading in bar
+                        
+                        
+                        
+                        
                         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
                             
                             // Change `2.0` to the desired number of seconds.
@@ -107,8 +113,13 @@ struct ContentView: View {
                         ProgressHUD.showFailed("No Connection")
                         
                     }
-                }, label: {Text("NEXT PRODUCT")})
-                    .frame(minWidth: UIScreen.screenWidth / 1.1, maxWidth: UIScreen.screenWidth / 1.1, minHeight:65, maxHeight: 65, alignment: .center)
+                }, label: {
+                    Text("NEXT PRODUCT")
+                            .frame(minWidth: UIScreen.screenWidth / 1.1, maxWidth: UIScreen.screenWidth / 1.1, minHeight:65, maxHeight: 65, alignment: .center)
+
+                    
+                    
+                })
                     .font(Font.custom("Catamaran-ExtraBold", size: 18))
                     .background(Color(#colorLiteral(red: 0.85, green: 0.33, blue: 0.18, alpha: 1.00)))
                     .foregroundColor(Color.white)
@@ -146,25 +157,37 @@ struct ContentView: View {
                 )
                 .foregroundColor(colorScheme == .dark ? Color.white : .black)
                 .actionSheet(isPresented: $showingActionSheet) {
+                    
                     ActionSheet(title: Text(titleName), buttons: [
+                        
+//                        .default(Text("Share"), action: {
+//                            guard let urlShare = URL(string: "https://developer.apple.com/xcode/swiftui/") else { return }
+//                                  let activityVC = UIActivityViewController(activityItems: [urlShare], applicationActivities: nil)
+//                                  UIApplication.shared.windows.first?.rootViewController?.present(activityVC, animated: true, completion: nil)
+//
+//                            
+//                            
+//                        }),
+                        
                         .default(Text("View on Product Hunt")) {
                             openURL(URL(string: link)!)
 
                         },
                         .default(Text("Save to Favorites")){
                             //Add link and title to favoirtes
-    
-                            //Add to list
-                            //var dict = [titleName: link]
                             
-                            //Get old dictionary
-                            var savedHunts =                             UserDefaults.standard.dictionary(forKey: "SavedHunts")
                             
-                            //Update old dictionary
-                            savedHunts![titleName] = link
+
+                            
+                            
+                            
+                            ProgressHUD.show("Saved", icon: .star, interaction: false)
                             
                             
                         },
+
+                        
+                        
                         .cancel()
                     ])
                     
@@ -191,7 +214,20 @@ struct ContentView: View {
             })
     }
     
+    
+    
+    func addFavorite(){
+        //
+        
+        
+        
+        
+        
+    }
+    
     func getData(){
+        //isLoading = true
+        
         description = " "
         
         imageURLS.removeAll()
@@ -310,7 +346,6 @@ struct ContentView: View {
                                 else{
                                     
                                     
-                                    
                                     if (((JSON(response.value!)["post"]["media"][0]["image_url"].string)?.contains(".gif")) != nil){
                                         //try another
                                         if(((JSON(response.value!)["post"]["media"][1]["image_url"].string)?.contains(".gif")) != nil){
@@ -337,6 +372,8 @@ struct ContentView: View {
                                         }
                                     }
                                     
+                                    //isLoading = false
+
                                     description = JSON(response.value!)["post"]["description"].string ?? "This product does not have a description."
                                 }
                                     
@@ -351,106 +388,9 @@ struct ContentView: View {
     
 }
 
-struct SettingsView: View{
-    @Environment(\.colorScheme) var colorScheme
-    
-    @State var darkMode = true
-    
-    init(){
-        if colorScheme  == .dark {
-            //Dark mode active
-            //print("dark mode")
-            darkMode = true
-        }
-        else{
-            //Not active
-            //print("light mode")
-            darkMode = false
-        }
-    }
-    
-    var body: some View {
-        
-        
-        List{
-            Section(footer: Text("Made using the Product Hunt API ❤️")){
-                //Toggle("Dark Mode", isOn: $darkMode)
-                NavigationLink("Favorites", destination: ({
-                    List{
-
-                        let savedHunts =                             UserDefaults.standard.dictionary(forKey: "SavedHunts")
-
-                        Button(action: {
-                            for (title, link) in savedHunts! {
-                                    print(title)
-                                    print(link)
-
-                            }
-                        }, label: {
-                            Text("Loop Test")
-                        })
-                        
-                        Button(action: {
-                            print(savedHunts)
-                        }, label: {
-                            Text("Defaults")
-                        })
-                        
-                        
-                        
-                        Link(destination: URL(string: "https://www.producthunt.com")!, label: {
-                            HStack{
-                                Text("Product Hunt Website")
-                                
-                            }
-                            
-                        })
-                        
-                    }.navigationBarTitle("Favorites")
-                    
-                }))
-                
-                Link(destination: URL(string: "https://www.producthunt.com")!, label: {
-                    HStack{
-                        Text("Product Hunt Website")
-                        
-                    }
-                    
-                })
-                
-                
-                Button("Like the app? Rate it!", action: {
-                    if let scene = UIApplication.shared.connectedScenes.first(where: { $0.activationState == .foregroundActive }) as? UIWindowScene {
-                        SKStoreReviewController.requestReview(in: scene)
-                    }
-                })
-                
-
-                
-                Link(destination: URL(string: "https://twitter.com/idriskhenchil")!, label: {
-                    Text("Twitter")
-                })
-            }
-        }.navigationTitle("Settings")
-    }
-}
-
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
         
     }
-}
-
-extension UINavigationController {
-    // Remove back button text
-    open override func viewWillLayoutSubviews() {
-        navigationBar.topItem?.backBarButtonItem = UIBarButtonItem(title: "Back", style: .done, target: nil, action: nil)
-    }
-}
-
-extension UIScreen{
-    static let screenWidth = UIScreen.main.bounds.size.width
-    static let screenHeight = UIScreen.main.bounds.size.height
-    static let screenSize = UIScreen.main.bounds.size
 }
