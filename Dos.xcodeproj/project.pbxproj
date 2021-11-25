@@ -15,14 +15,8 @@
 		09A77CBE27200F1E00A66C85 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 09A77CBD27200F1E00A66C85 /* Assets.xcassets */; };
 		09A77CC127200F1E00A66C85 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 09A77CC027200F1E00A66C85 /* Preview Assets.xcassets */; };
 		09A77CCA2720198800A66C85 /* Fonts in Resources */ = {isa = PBXBuildFile; fileRef = 09A77CC92720198700A66C85 /* Fonts */; };
-		09A77CD527201AEE00A66C85 /* Catamaran-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 09A77CCC27201AEE00A66C85 /* Catamaran-Light.ttf */; };
 		09A77CD627201AEE00A66C85 /* Catamaran-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 09A77CCD27201AEE00A66C85 /* Catamaran-Bold.ttf */; };
-		09A77CD727201AEE00A66C85 /* Catamaran-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 09A77CCE27201AEE00A66C85 /* Catamaran-Regular.ttf */; };
 		09A77CD827201AEE00A66C85 /* Catamaran-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 09A77CCF27201AEE00A66C85 /* Catamaran-ExtraBold.ttf */; };
-		09A77CD927201AEE00A66C85 /* Catamaran-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 09A77CD027201AEE00A66C85 /* Catamaran-SemiBold.ttf */; };
-		09A77CDA27201AEE00A66C85 /* Catamaran-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 09A77CD127201AEE00A66C85 /* Catamaran-ExtraLight.ttf */; };
-		09A77CDB27201AEE00A66C85 /* Catamaran-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 09A77CD227201AEE00A66C85 /* Catamaran-Thin.ttf */; };
-		09A77CDC27201AEE00A66C85 /* Catamaran-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 09A77CD327201AEE00A66C85 /* Catamaran-Black.ttf */; };
 		09A77CDD27201AEE00A66C85 /* Catamaran-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 09A77CD427201AEE00A66C85 /* Catamaran-Medium.ttf */; };
 		24698682026C6E19410D7035 /* Pods_Dos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 621FDE4BB61B78B255B31E8D /* Pods_Dos.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 /* End PBXBuildFile section */
@@ -38,14 +32,8 @@
 		09A77CC027200F1E00A66C85 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		09A77CC92720198700A66C85 /* Fonts */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Fonts; sourceTree = "<group>"; };
 		09A77CCB272019A700A66C85 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
-		09A77CCC27201AEE00A66C85 /* Catamaran-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Catamaran-Light.ttf"; sourceTree = "<group>"; };
 		09A77CCD27201AEE00A66C85 /* Catamaran-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Catamaran-Bold.ttf"; sourceTree = "<group>"; };
-		09A77CCE27201AEE00A66C85 /* Catamaran-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Catamaran-Regular.ttf"; sourceTree = "<group>"; };
 		09A77CCF27201AEE00A66C85 /* Catamaran-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Catamaran-ExtraBold.ttf"; sourceTree = "<group>"; };
-		09A77CD027201AEE00A66C85 /* Catamaran-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Catamaran-SemiBold.ttf"; sourceTree = "<group>"; };
-		09A77CD127201AEE00A66C85 /* Catamaran-ExtraLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Catamaran-ExtraLight.ttf"; sourceTree = "<group>"; };
-		09A77CD227201AEE00A66C85 /* Catamaran-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Catamaran-Thin.ttf"; sourceTree = "<group>"; };
-		09A77CD327201AEE00A66C85 /* Catamaran-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Catamaran-Black.ttf"; sourceTree = "<group>"; };
 		09A77CD427201AEE00A66C85 /* Catamaran-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Catamaran-Medium.ttf"; sourceTree = "<group>"; };
 		214A91F33AFE05C96152D666 /* Pods-Dos.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dos.debug.xcconfig"; path = "Target Support Files/Pods-Dos/Pods-Dos.debug.xcconfig"; sourceTree = "<group>"; };
 		35E0AC50AA63F428F14175AA /* Pods-Dos.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dos.release.xcconfig"; path = "Target Support Files/Pods-Dos/Pods-Dos.release.xcconfig"; sourceTree = "<group>"; };
@@ -86,22 +74,16 @@
 			isa = PBXGroup;
 			children = (
 				09A77CCB272019A700A66C85 /* Info.plist */,
+				09A77CBD27200F1E00A66C85 /* Assets.xcassets */,
 				09A77CB927200F1C00A66C85 /* DosApp.swift */,
 				09A77CBB27200F1C00A66C85 /* ContentView.swift */,
-				09A77CBD27200F1E00A66C85 /* Assets.xcassets */,
-				09A77CD327201AEE00A66C85 /* Catamaran-Black.ttf */,
-				09A77CCD27201AEE00A66C85 /* Catamaran-Bold.ttf */,
-				09A77CCF27201AEE00A66C85 /* Catamaran-ExtraBold.ttf */,
-				09A77CD127201AEE00A66C85 /* Catamaran-ExtraLight.ttf */,
-				09A77CCC27201AEE00A66C85 /* Catamaran-Light.ttf */,
-				09A77CD427201AEE00A66C85 /* Catamaran-Medium.ttf */,
-				09A77CCE27201AEE00A66C85 /* Catamaran-Regular.ttf */,
-				09A77CD027201AEE00A66C85 /* Catamaran-SemiBold.ttf */,
-				09A77CD227201AEE00A66C85 /* Catamaran-Thin.ttf */,
-				09A77CBF27200F1E00A66C85 /* Preview Content */,
 				093A6C1527232719005C1143 /* Reachability.swift */,
 				090A7852274E7C5A00572651 /* SettingsView.swift */,
 				090A7854274E7C9C00572651 /* Extensions.swift */,
+				09A77CBF27200F1E00A66C85 /* Preview Content */,
+				09A77CCD27201AEE00A66C85 /* Catamaran-Bold.ttf */,
+				09A77CCF27201AEE00A66C85 /* Catamaran-ExtraBold.ttf */,
+				09A77CD427201AEE00A66C85 /* Catamaran-Medium.ttf */,
 			);
 			path = Dos;
 			sourceTree = "<group>";
@@ -192,16 +174,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				09A77CDB27201AEE00A66C85 /* Catamaran-Thin.ttf in Resources */,
-				09A77CD727201AEE00A66C85 /* Catamaran-Regular.ttf in Resources */,
-				09A77CD527201AEE00A66C85 /* Catamaran-Light.ttf in Resources */,
 				09A77CCA2720198800A66C85 /* Fonts in Resources */,
 				09A77CD827201AEE00A66C85 /* Catamaran-ExtraBold.ttf in Resources */,
 				09A77CD627201AEE00A66C85 /* Catamaran-Bold.ttf in Resources */,
-				09A77CDC27201AEE00A66C85 /* Catamaran-Black.ttf in Resources */,
 				09A77CC127200F1E00A66C85 /* Preview Assets.xcassets in Resources */,
-				09A77CD927201AEE00A66C85 /* Catamaran-SemiBold.ttf in Resources */,
-				09A77CDA27201AEE00A66C85 /* Catamaran-ExtraLight.ttf in Resources */,
 				09A77CDD27201AEE00A66C85 /* Catamaran-Medium.ttf in Resources */,
 				09A77CBE27200F1E00A66C85 /* Assets.xcassets in Resources */,
 			);
@@ -391,7 +367,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_ASSET_PATHS = "\"Dos/Preview Content\"";
 				DEVELOPMENT_TEAM = EL93J8QV6W;
 				ENABLE_PREVIEWS = YES;
@@ -409,7 +385,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.04;
+				MARKETING_VERSION = 1.00;
 				PRODUCT_BUNDLE_IDENTIFIER = com.idriskhenchil.ReHunt;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -426,7 +402,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_ASSET_PATHS = "\"Dos/Preview Content\"";
 				DEVELOPMENT_TEAM = EL93J8QV6W;
 				ENABLE_PREVIEWS = YES;
@@ -444,7 +420,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.04;
+				MARKETING_VERSION = 1.00;
 				PRODUCT_BUNDLE_IDENTIFIER = com.idriskhenchil.ReHunt;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;

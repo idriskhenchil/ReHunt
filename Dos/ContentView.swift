@@ -39,7 +39,8 @@ struct ContentView: View {
         NavigationView{
             VStack{
                 VStack{
-                    Text(titleName).lineLimit(nil).frame(width: UIScreen.main.bounds.width / 1.15, alignment: .leading).font(Font.custom("Catamaran-ExtraBold", size: 32))
+                    Text(titleName)
+                        .lineLimit(nil).frame(width: UIScreen.main.bounds.width / 1.15, alignment: .leading).font(Font.custom("Catamaran-ExtraBold", size: 32))
                         .foregroundColor(colorScheme == .dark ? Color.white : .black)
                     
                     Text(caption)
@@ -160,30 +161,61 @@ struct ContentView: View {
                     
                     ActionSheet(title: Text(titleName), buttons: [
                         
-//                        .default(Text("Share"), action: {
-//                            guard let urlShare = URL(string: "https://developer.apple.com/xcode/swiftui/") else { return }
-//                                  let activityVC = UIActivityViewController(activityItems: [urlShare], applicationActivities: nil)
-//                                  UIApplication.shared.windows.first?.rootViewController?.present(activityVC, animated: true, completion: nil)
-//
-//                            
-//                            
-//                        }),
+                        .default(Text("Share"), action: {
+                            guard let urlShare = URL(string: link) else { return }
+                                  let activityVC = UIActivityViewController(activityItems: [urlShare], applicationActivities: nil)
+                                  UIApplication.shared.windows.first?.rootViewController?.present(activityVC, animated: true, completion: nil)
+                        }),
                         
                         .default(Text("View on Product Hunt")) {
                             openURL(URL(string: link)!)
 
                         },
                         .default(Text("Save to Favorites")){
-                            //Add link and title to favoirtes
-                            
-                            
+                            //Check to see if defaults already exists
+                            if isKeyPresentInUserDefaults(key: "favProducts"){
+                                
+                                var favouriteProducts = UserDefaults.standard.array(forKey: "favProducts") as? [[String:String]] ?? [[:]]
 
-                            
-                            
-                            
-                            ProgressHUD.show("Saved", icon: .star, interaction: false)
-                            
-                            
+                                let firstArray = ["titleName": titleName,"link": link]
+                                favouriteProducts.append(firstArray)
+                                
+                                
+                                //Delete old array
+                                
+                                UserDefaults.standard.removeObject(forKey: "favProducts")
+                                
+                                
+                                UserDefaults.standard.set(favouriteProducts, forKey: "favProducts")
+                                
+                                ProgressHUD.show("Saved", icon: .star, interaction: false)
+
+
+                            }
+                            else{
+                                var favouriteProducts = [[String:Any]]()
+                                var listOfSite = [SiteDetail]()
+                                
+                                let firstArray = ["titleName": titleName,"link": link]
+                                
+                                favouriteProducts.append(firstArray)
+                                UserDefaults.standard.set(favouriteProducts, forKey: "favProducts")
+                                
+                                let value = UserDefaults.standard.array(forKey: "favProducts") as? [[String:String]] ?? [[:]]
+                                
+                                for values in value{
+                                    let siteName = values["titleName"] ?? ""
+                                    let link = values["link"] ?? ""
+                                    let siteDetail = SiteDetail(website: siteName, link: link)
+                                    listOfSite.append(siteDetail)
+                                }
+                                
+                                
+                                ProgressHUD.show("Saved", icon: .star, interaction: false)
+                                
+                                
+
+                            }
                         },
 
                         
@@ -215,6 +247,10 @@ struct ContentView: View {
     }
     
     
+    struct SiteDetail{
+      var website:String?
+      var link:String?
+    }
     
     func addFavorite(){
         //
@@ -224,6 +260,12 @@ struct ContentView: View {
         
         
     }
+    
+    
+    func isKeyPresentInUserDefaults(key: String) -> Bool {
+        return UserDefaults.standard.object(forKey: key) != nil
+    }
+    
     
     func getData(){
         //isLoading = true
