@@ -12,8 +12,8 @@ import StoreKit
 struct SettingsView: View{
     @Environment(\.colorScheme) var colorScheme
     
-    @State var darkMode = true
     @State var favoritesExist = Bool()
+    @State var darkMode = true
     
     init(){
         if colorScheme  == .dark {
@@ -26,6 +26,9 @@ struct SettingsView: View{
             //print("light mode")
             darkMode = false
         }
+        
+        
+        
     }
     
     func isKeyPresentInUserDefaults(key: String) -> Bool {
@@ -47,7 +50,8 @@ struct SettingsView: View{
                 
                 
                 
-                NavigationLink("Favorites", destination: ({
+                
+                NavigationLink(favoritesExist ? "Favorites" : "No Favorites Yet", destination: ({
 
                     List{
                         ForEach(0..<favProducts.count){ index in
@@ -55,47 +59,9 @@ struct SettingsView: View{
                             
                         }
                     }
-                    .onAppear(perform: {
-                        if isKeyPresentInUserDefaults(key: "favProducts"){
-                            //Key exists so get array that is currently available
-                            favoritesExist = true
-                            
-                            //Add to dictionary
-                            //favoriteProducts?.updateValue(link, forKey: titleName)
-                            
-                            //Update key
-                            //UserDefaults.standard.set(favoriteProducts, forKey: "favoriteProducts")
-                            
-                            
-                            //print(UserDefaults.standard.array(forKey: "favProducts")![0])
-                            
-                            
-                            
-                            
-//                            print(UserDefaults.standard.array(forKey: "favProducts")![0] as! [String: String])
-//
-//                            let firstElement = (UserDefaults.standard.array(forKey: "favProducts")?[0] as? [String: String])
-//                            let title = firstElement?["titleName"]
-//                            let link = firstElement?["link"]
-//
-//                            print(firstElement)
-
-                        }
-                        else{
-                            favoritesExist = false
-                            print("no favorites")
-                            
-                            
-
-                        }
-                        
-                        
-                    })
-                    
-                    
                     .navigationBarTitle("Favorites")
                     
-                }))
+                })).disabled(!favoritesExist)
                 
                 Link(destination: URL(string: "https://www.producthunt.com")!, label: {
                     HStack{
@@ -118,6 +84,21 @@ struct SettingsView: View{
                     Text("Twitter")
                 })
             }
-        }.navigationTitle("Settings")
+        }
+        .onAppear(perform: {
+            if isKeyPresentInUserDefaults(key: "favProducts"){
+                //Key exists so get array that is currently available
+                favoritesExist = true
+                
+                
+                
+            }
+            else{
+                favoritesExist = false
+                print("no favorites")
+            }
+        })
+        
+        .navigationTitle("Settings")
     }
 }

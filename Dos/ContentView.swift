@@ -188,6 +188,8 @@ struct ContentView: View {
                                 
                                 UserDefaults.standard.set(favouriteProducts, forKey: "favProducts")
                                 
+                                UIImpactFeedbackGenerator.init(style: .medium).impactOccurred()
+                                
                                 ProgressHUD.show("Saved", icon: .star, interaction: false)
 
 
