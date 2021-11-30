@@ -46,10 +46,6 @@ struct SettingsView: View{
         
         List{
             Section(footer: Text("Made using the Product Hunt API ❤️")){
-                //Toggle("Dark Mode", isOn: $darkMode)
-                
-                
-                
                 
                 NavigationLink(favoritesExist ? "Favorites" : "No Favorites Yet", destination: ({
 
@@ -89,9 +85,7 @@ struct SettingsView: View{
             if isKeyPresentInUserDefaults(key: "favProducts"){
                 //Key exists so get array that is currently available
                 favoritesExist = true
-                
-                
-                
+
             }
             else{
                 favoritesExist = false

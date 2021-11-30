@@ -18,6 +18,8 @@
 		09A77CD627201AEE00A66C85 /* Catamaran-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 09A77CCD27201AEE00A66C85 /* Catamaran-Bold.ttf */; };
 		09A77CD827201AEE00A66C85 /* Catamaran-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 09A77CCF27201AEE00A66C85 /* Catamaran-ExtraBold.ttf */; };
 		09A77CDD27201AEE00A66C85 /* Catamaran-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 09A77CD427201AEE00A66C85 /* Catamaran-Medium.ttf */; };
+		09F940ED27520A5100CF567C /* Posts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09F940EC27520A5100CF567C /* Posts.swift */; };
+		09F940F227520A7E00CF567C /* ContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09F940F127520A7E00CF567C /* ContentViewController.swift */; };
 		24698682026C6E19410D7035 /* Pods_Dos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 621FDE4BB61B78B255B31E8D /* Pods_Dos.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 /* End PBXBuildFile section */
 
@@ -35,6 +37,8 @@
 		09A77CCD27201AEE00A66C85 /* Catamaran-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Catamaran-Bold.ttf"; sourceTree = "<group>"; };
 		09A77CCF27201AEE00A66C85 /* Catamaran-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Catamaran-ExtraBold.ttf"; sourceTree = "<group>"; };
 		09A77CD427201AEE00A66C85 /* Catamaran-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Catamaran-Medium.ttf"; sourceTree = "<group>"; };
+		09F940EC27520A5100CF567C /* Posts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Posts.swift; sourceTree = "<group>"; };
+		09F940F127520A7E00CF567C /* ContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewController.swift; sourceTree = "<group>"; };
 		214A91F33AFE05C96152D666 /* Pods-Dos.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dos.debug.xcconfig"; path = "Target Support Files/Pods-Dos/Pods-Dos.debug.xcconfig"; sourceTree = "<group>"; };
 		35E0AC50AA63F428F14175AA /* Pods-Dos.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dos.release.xcconfig"; path = "Target Support Files/Pods-Dos/Pods-Dos.release.xcconfig"; sourceTree = "<group>"; };
 		621FDE4BB61B78B255B31E8D /* Pods_Dos.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Dos.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -73,13 +77,11 @@
 		09A77CB827200F1C00A66C85 /* Dos */ = {
 			isa = PBXGroup;
 			children = (
+				09F940F027520A7200CF567C /* ViewController */,
+				09F940EF27520A6600CF567C /* Views */,
+				09F940EE27520A5A00CF567C /* Models */,
 				09A77CCB272019A700A66C85 /* Info.plist */,
 				09A77CBD27200F1E00A66C85 /* Assets.xcassets */,
-				09A77CB927200F1C00A66C85 /* DosApp.swift */,
-				09A77CBB27200F1C00A66C85 /* ContentView.swift */,
-				093A6C1527232719005C1143 /* Reachability.swift */,
-				090A7852274E7C5A00572651 /* SettingsView.swift */,
-				090A7854274E7C9C00572651 /* Extensions.swift */,
 				09A77CBF27200F1E00A66C85 /* Preview Content */,
 				09A77CCD27201AEE00A66C85 /* Catamaran-Bold.ttf */,
 				09A77CCF27201AEE00A66C85 /* Catamaran-ExtraBold.ttf */,
@@ -95,6 +97,42 @@
 				09A77CC027200F1E00A66C85 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		09F940EE27520A5A00CF567C /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				09F940EC27520A5100CF567C /* Posts.swift */,
+				09A77CB927200F1C00A66C85 /* DosApp.swift */,
+				09F940F327520AF600CF567C /* Utilities */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		09F940EF27520A6600CF567C /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				09A77CBB27200F1C00A66C85 /* ContentView.swift */,
+				090A7852274E7C5A00572651 /* SettingsView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		09F940F027520A7200CF567C /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				09F940F127520A7E00CF567C /* ContentViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		09F940F327520AF600CF567C /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				093A6C1527232719005C1143 /* Reachability.swift */,
+				090A7854274E7C9C00572651 /* Extensions.swift */,
+			);
+			path = Utilities;
 			sourceTree = "<group>";
 		};
 		98C84E8B5DB0D1A59C91CDA7 /* Frameworks */ = {
@@ -233,10 +271,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				090A7855274E7C9C00572651 /* Extensions.swift in Sources */,
+				09F940ED27520A5100CF567C /* Posts.swift in Sources */,
 				09A77CBC27200F1C00A66C85 /* ContentView.swift in Sources */,
 				090A7853274E7C5A00572651 /* SettingsView.swift in Sources */,
 				09A77CBA27200F1C00A66C85 /* DosApp.swift in Sources */,
 				093A6C1627232719005C1143 /* Reachability.swift in Sources */,
+				09F940F227520A7E00CF567C /* ContentViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -367,7 +407,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 7;
+				CURRENT_PROJECT_VERSION = 8;
 				DEVELOPMENT_ASSET_PATHS = "\"Dos/Preview Content\"";
 				DEVELOPMENT_TEAM = EL93J8QV6W;
 				ENABLE_PREVIEWS = YES;
@@ -402,7 +442,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 7;
+				CURRENT_PROJECT_VERSION = 8;
 				DEVELOPMENT_ASSET_PATHS = "\"Dos/Preview Content\"";
 				DEVELOPMENT_TEAM = EL93J8QV6W;
 				ENABLE_PREVIEWS = YES;
