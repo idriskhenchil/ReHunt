@@ -21,7 +21,6 @@ struct ContentView: View {
     }
     
     @State private var showingActionSheet = false
-    @State var isLoading = Bool()
     
     var body: some View {
         NavigationView{
@@ -40,7 +39,9 @@ struct ContentView: View {
                     HStack{
                         if Connectivity.isConnectedToInternet{
                             ForEach(CVC.imageURLS, id: \.self){ links in
-                                KFImage(URL(string: CVC.imageURL)!)
+                                KFImage(URL(string: links)!)
+                                
+                                
                                     .placeholder{
                                         ProgressView()
                                     }
@@ -70,13 +71,15 @@ struct ContentView: View {
                 }
                 
                 Button(action: {
-                    //Animate refresh?
                     if Connectivity.isConnectedToInternet{
                         CVC.imageURLS.removeAll()
                         
                         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
                             CVC.getData()
                         }
+                        
+                        UIImpactFeedbackGenerator.init(style: .soft).impactOccurred()
+                        
                     }
                     else{
                         print("No connection")
@@ -182,10 +185,7 @@ struct ContentView: View {
             })
     }
     
-    struct SiteDetail{
-        var website: String?
-        var link: String?
-    }
+
     
     func isKeyPresentInUserDefaults(key: String) -> Bool {
         return UserDefaults.standard.object(forKey: key) != nil

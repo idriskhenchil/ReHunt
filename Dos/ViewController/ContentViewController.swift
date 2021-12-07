@@ -12,27 +12,17 @@ import SwiftyJSON
 
 class ContentViewController: ObservableObject {
     @Published var posts: [Posts] = []
-    @Published var description: String = ""
-    @Published var date: String = ""
+    @Published var description = String()
+    @Published var date = String()
     @Published var imageURLS: [String] = []
     @Published var titleName = String()
-    @Published var votes: String = ""
+    @Published var votes = String()
     @Published var caption = String()
-    @Published var link: String = ""
-    @Published var imageURL: String = ""
-    
+    @Published var link = String()
+    @Published var imageURL = String()
     var returnedData: [Posts] = []
     
-    init(){
-        getData()
-        
-    }
-    
     func getData()  {
-        print(imageURL)
-        
-        posts = [Posts(title: titleName, caption: caption, imageLink: imageURL, description: description, productURL: link)]
-        
         imageURLS.removeAll()
         
         //Get random date
@@ -67,7 +57,6 @@ class ContentViewController: ObservableObject {
         let date1 = "\(year)-\(month1)-\(day1)"
         var postID = Int()
         
-        
         let dateFormatterGet = DateFormatter()
         dateFormatterGet.dateFormat = "yyyy-MM-dd"
         
@@ -75,8 +64,6 @@ class ContentViewController: ObservableObject {
         dateFormatterPrint.dateFormat = "MMM dd, yyyy"
         
         if let date2 = dateFormatterGet.date(from: date1) {
-            //print(dateFormatterPrint.string(from: date2))
-            
             date = dateFormatterPrint.string(from: date2)
         } else {
             print("There was an error decoding the string")
@@ -97,7 +84,6 @@ class ContentViewController: ObservableObject {
                         print("Request timeout!")
                     }
                 }
-                
                 
                 func firstLoad(){
                     ProgressHUD.dismiss()
@@ -139,23 +125,16 @@ class ContentViewController: ObservableObject {
                                         ProgressHUD.showFailed("Try again")
                                     }
                                     else{
-                                        
-                                        
                                         if (((JSON(response.value!)["post"]["media"][0]["image_url"].string)?.contains(".gif")) != nil){
                                             //try another
                                             if(((JSON(response.value!)["post"]["media"][1]["image_url"].string)?.contains(".gif")) != nil){
                                                 
                                                 //CHeck if url not empty
-                                                
                                                 self.imageURL = JSON(response.value!)["post"]["media"][2]["image_url"].string ?? "Error"
-                                                
-                                                
+
                                                 if self.imageURL == "" {
                                                     print("URL EMPTY")
-                                                    
-                                                    
                                                 }
-                                                print(self.imageURL)
                                             }
                                             else{
                                                 self.imageURL = JSON(response.value!)["post"]["media"][1]["image_url"].string ?? "Error"
@@ -170,12 +149,7 @@ class ContentViewController: ObservableObject {
                                         }
                                         
                                         for image in JSON(response.value!)["post"]["media"].arrayValue {
-                                            
-                                            
-                                            if image["image_url"].stringValue.contains(".gif"){
-                                                //Omit
-                                            }
-                                            else{
+                                            if !image["image_url"].stringValue.contains(".gif"){
                                                 self.imageURLS.append(image["image_url"].stringValue)
                                             }
                                         }
@@ -188,7 +162,9 @@ class ContentViewController: ObservableObject {
                     }
                     
                 }
+                
             }
         
+        posts = [Posts(title: titleName, caption: caption, imageLink: imageURL, description: description, productURL: link, imageURLS: self.imageURLS)]
     }
 }

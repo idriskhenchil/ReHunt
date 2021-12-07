@@ -13,4 +13,5 @@ struct Posts {
     var imageLink: String
     var description: String
     var productURL: String
+    var imageURLS: [String]
 }
